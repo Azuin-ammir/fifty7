@@ -15,7 +15,7 @@ function RealEstateHeroBanner() {
       <div className="carpentry-video-container">
         <video
           className="carpentry-hero-video"
-          src="/Videos/Academy/academy.mp4"
+          src="/Videos/Real Estate/realestate.mp4"
           autoPlay
           muted
           loop

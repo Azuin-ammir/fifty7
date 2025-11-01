@@ -53,82 +53,85 @@
   box-shadow: 0 8px 25px rgba(99, 16, 13, 0.4);
 }
 
-/* ✅ Mobile behavior - Updated to match the image */
+/* ✅ Mobile behavior - Floating button with transparent background */
 @media (max-width: 768px) {
   /* Hide header only */
   .garrison-enquire-now-section .section-header {
     display: none;
   }
 
-  /* Sticky bottom bar - Maroon background like the image */
+  /* Sticky bottom bar - TRANSPARENT background for floating effect */
   .garrison-enquire-now-section {
     padding: 0;
     position: fixed;
     bottom: 0;
     left: 0;
-    background: #63100d; /* MAROON bar background */
+    background: transparent; /* 🔥 Changed from #63100d to transparent */
     width: 100vw;
     z-index: 9999;
     height: auto;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: none; /* Removed shadow for cleaner float */
+    pointer-events: none; /* Allow clicks to pass through empty space */
   }
 
   /* Make button container full width */
   .enquire-cta-container {
     width: 100%;
     margin: 0;
-    padding: 12px 20px; /* Add padding around the button */
+    padding: 12px 20px;
+    pointer-events: auto; /* Re-enable clicks on the button area */
   }
 
-  /* Button styling to match the image */
+  /* Button styling with shadow for floating effect */
   .enquire-btn {
     width: 100%;
-    border-radius: 8px; /* Rounded corners like the image */
+    border-radius: 50px;
     margin: 0;
-    padding: 16px 0; /* Comfortable padding */
+    padding: 16px 0;
     font-size: 1rem;
-    background: #f8f3e7; /* CREAM button background */
-    color: #63100d; /* MAROON text color */
+    background: #63100d;
+    color: #fbf3e7;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border: 2px solid transparent;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 🔥 Added shadow for floating effect */
   }
 
   /* Remove hover effects for mobile */
   .enquire-btn:hover {
     transform: none;
-    box-shadow: none;
-    background: #f8f3e7; /* Keep same background on hover */
-    color: #63100d; /* Keep same text color on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #63100d;
+    color: #fbf3e7;
   }
 
   /* Active state for touch feedback */
   .enquire-btn:active {
-    background: #e8e3d7; /* Slightly darker cream when pressed */
+    background: #421212;
     transform: scale(0.98);
   }
 
-  /* Adjust body padding so content stays visible above the sticky bar */
+  /* Adjust body padding so content stays visible above the sticky button */
   body {
-    padding-bottom: 80px; /* Increased to account for button + padding */
+    padding-bottom: 80px;
   }
 }
 
 /* ✅ Extra small mobile devices */
 @media (max-width: 480px) {
   .enquire-cta-container {
-    padding: 10px 16px; /* Slightly less padding on smaller screens */
+    padding: 10px 16px;
   }
   
   .enquire-btn {
-    padding: 14px 0; /* Slightly less vertical padding */
-    font-size: 0.95rem; /* Slightly smaller font */
+    padding: 14px 0;
+    font-size: 0.95rem;
   }
   
   body {
-    padding-bottom: 70px; /* Adjust body padding for smaller button */
+    padding-bottom: 70px;
   }
 }
 

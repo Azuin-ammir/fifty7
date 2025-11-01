@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../../components/Navbar";
 import CarpentryHeroBanner from "../../components/Academy/CarpentryHeroBanner";
 import CarpentryProfile from "../../components/Academy/CarpentryProfile";
 import CarpentryVideos from "../../components/Academy/CarpentryVideos";
@@ -10,6 +11,7 @@ function Academy() {
   return (
     <div>
       {/* <AcademyNavbar /> */}
+      <Navbar logo="/Images/RealEstate/logo.png" />
       <CarpentryHeroBanner />
       {/* <CarpentryProfile /> */}
       {/* <CarpentryVideos />

@@ -23,7 +23,7 @@
 # yarn-error.log*
 # public/Videos/
 
-# # public/Videos/*.mp4
-# # *.mp4
-# # *.mov
-# *.avi
+public/Videos/*.mp4
+*.mp4
+*.mov
+*.avi

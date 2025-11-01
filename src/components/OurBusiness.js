@@ -8,11 +8,11 @@ function OurBusiness({
   description = "From bespoke interiors to curated spaces and lifestyle ventures, our businesses share a common thread — an obsession with quality, detail, and timeless character.",
   businessItems = [
     { name: "Garrison", link: "/garrison" },
-    { name: "Kindrette", link: "/kindrette" },
-    { name: "Business 3", link: "/business3" },
-    { name: "Business 4", link: "/business4" },
-    { name: "FiftySeven Market", link: "/fiftyseven-market" },
-    { name: "Events", link: "/events" },
+    { name: "Renovate Space", link: "/57directive" },
+    { name: "Book A Carpentry Lesson", link: "/academy" },
+    { name: "Sell Your Place", link: "/realestate" },
+    // { name: "FiftySeven Market", link: "/fiftyseven-market" },
+    // { name: "Events", link: "/events" },
   ],
   highlight = null,
   showOtherBusinesses = true

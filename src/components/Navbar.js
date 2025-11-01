@@ -28,10 +28,10 @@ function Navbar({ logo }) {
     if (location.pathname.startsWith("/57directive"))
       return "/Images/57Directive/directive.png";
     if (location.pathname.startsWith("/academy"))
-      return "/Images/Academy/academylogo.png";
+      return "/Images/Academy/logo.png";
     if (location.pathname.startsWith("/realestate"))
-      return "/Images/RealEstate/realestatelogo.png";
-    return "/Images/raffles-logo.png";
+      return "/Images/RealEstate/logo.png";
+    return "/Images/Academy/logo.png";
   };
 
   const currentLogo = getLogoForPage();
@@ -130,7 +130,7 @@ function Navbar({ logo }) {
             to="/"
             onClick={closeMobileMenu}
           >
-            <img src={currentLogo} alt="Company logo" />
+            <img src={currentLogo} alt="Logo" />
           </Link>
 
           <ul className={`navbar-nav nav-links ${scrolled ? "visible" : "hidden"} ${mobileOpen ? "show" : ""}`}>

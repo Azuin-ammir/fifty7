@@ -4,31 +4,10 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-}
-
-.carpentry-scrolling-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--accent);
-  color: var(--text-light);
-  padding: 12px 0;
-  z-index: 20;
-  overflow: hidden;
-}
-
-.carpentry-scrolling-content {
-  display: inline-block;
-  white-space: nowrap;
-  animation: carpentry-scroll 30s linear infinite;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-@keyframes carpentry-scroll {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  font-family: 'Angsana New', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
 }
 
 .carpentry-video-container {
@@ -43,6 +22,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  display: block;
+  background-color: #000;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .carpentry-video-overlay {
@@ -52,8 +36,25 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
+.carpentry-hero-content {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+}
+
+/* WhatsApp Floating Icon */
 .carpentry-whatsapp-float {
   position: fixed;
   bottom: 30px;
@@ -71,17 +72,29 @@
   transform: scale(1.1);
 }
 
+/* Mobile adjustments: full screen hero */
 @media (max-width: 768px) {
   .carpentry-hero-banner {
-    height: 70vh;
+    height: -webkit-fill-available;
+    min-height: 100dvh;
   }
-  
-  .carpentry-scrolling-content {
-    font-size: 1rem;
+
+  .carpentry-hero-content {
+    padding: 0 10px;
   }
-  
+
   .carpentry-whatsapp-link img {
     width: 50px;
     height: 50px;
+  }
+}
+
+/* Safari fix for mobile viewport units */
+@supports (-webkit-touch-callout: none) {
+  .carpentry-hero-banner,
+  .carpentry-video-container,
+  .carpentry-hero-video {
+    height: -webkit-fill-available !important;
+    min-height: 100dvh !important;
   }
 }
