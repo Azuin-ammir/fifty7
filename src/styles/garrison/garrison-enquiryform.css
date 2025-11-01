@@ -1,47 +1,373 @@
 /* src/styles/garrison/garrison-enquiryform.css */
-.garrison-enquiry-form-section {
-  padding: 80px 0;
-  background: #f8f3e7;
-  min-height: 100vh;
+:root {
+  --primary: #63100d;
+  --secondary: #f8f3e7;
+  --accent: #cba847;
+  --text-dark: #2d3748;
+  --text-light: #ffffff;
+  --muted: #718096;
+  --border: #e2e8f0;
 }
 
-.container {
+.garrison-enquiry-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+  background: white;
+  min-height: 100vh;
+  font-family: 'Angsana New', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+}
+
+.enquiry-header {
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.enquiry-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 12px 0;
+}
+
+.enquiry-header p {
+  font-size: 1.1rem;
+  color: var(--primary);
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Rate Section */
+.rate-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(99, 16, 13, 0.08);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(99, 16, 13, 0.1);
+}
+
+.rate-tabs {
+  display: flex;
+  background: rgba(99, 16, 13, 0.1);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rate-tabs .tab {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rate-tabs .tab.active {
+  background: var(--primary);
+  color: var(--text-light);
+  box-shadow: 0 2px 6px rgba(99, 16, 13, 0.2);
+}
+
+.rate-tabs .tab:hover:not(.active) {
+  background: rgba(203, 168, 71, 0.1);
+}
+
+.rate-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.rate-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background: rgba(248, 243, 231, 0.3);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  min-height: 80px;
+}
+
+.rate-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(203, 168, 71, 0.15);
+}
+
+.rate-card.selected {
+  background: white;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(203, 168, 71, 0.2);
+}
+
+.rate-info .rate-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.rate-info .rate-time {
+  font-size: 0.9rem;
+  color: var(--primary);
+  opacity: 0.7;
+}
+
+.rate-price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.selected-indicator {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--accent);
+  color: var(--text-light);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* Calendar Section */
+.calendar-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(99, 16, 13, 0.08);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(99, 16, 13, 0.1);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-button {
+  background: rgba(99, 16, 13, 0.1);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: var(--primary);
+}
+
+.nav-button:hover {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+.month-display {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.calendar-grid {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
-.form-header {
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.weekday {
   text-align: center;
-  margin-bottom: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--primary);
+  padding: 10px 0;
 }
 
-.form-header h1 {
-  color: #63100d;
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  font-weight: 400;
+.calendar-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 2px;
 }
 
-.form-header p {
-  color: #666;
-  font-size: 1.2rem;
-  line-height: 1.6;
+.calendar-cell {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(248, 243, 231, 0.3);
+  position: relative;
+  min-height: 60px;
+  border: 1px solid transparent;
+}
+
+.calendar-cell:not(.empty):not(.booked):hover {
+  background: rgba(203, 168, 71, 0.1);
+  border-color: var(--accent);
+}
+
+.calendar-cell.selected {
+  background: var(--accent);
+  color: var(--text-light);
+  border-color: var(--accent);
+}
+
+.calendar-cell.booked {
+  background: #fed7d7;
+  color: #e53e3e;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.calendar-cell.today {
+  border: 2px solid var(--accent);
+}
+
+.calendar-cell.empty {
+  background: transparent;
+  cursor: default;
+  border: none;
+}
+
+.date-number {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.date-price, .booked-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.calendar-cell.selected .date-price {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Selection Summary */
+.selection-summary {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(99, 16, 13, 0.08);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(99, 16, 13, 0.1);
+}
+
+.selection-summary h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-item.total {
+  border-bottom: none;
+  font-size: 1.1rem;
+  color: var(--primary);
+  padding-top: 12px;
+  font-weight: 700;
+}
+
+/* Enquiry Form */
+.enquiry-form-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(99, 16, 13, 0.08);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(99, 16, 13, 0.1);
+}
+
+.enquiry-form-section h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.form-description {
+  color: var(--primary);
+  opacity: 0.8;
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
 }
 
 .enquiry-form {
-  background: white;
-  padding: 50px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-bottom: 30px;
+  gap: 16px;
 }
 
 .form-group {
@@ -49,185 +375,187 @@
   flex-direction: column;
 }
 
-.form-group.full-width {
-  grid-column: 1 / -1;
-}
-
 .form-group label {
-  color: #63100d;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 6px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  padding: 15px 20px;
-  border: 2px solid #e8e0d0;
+  padding: 12px 14px;
+  border: 2px solid var(--border);
   border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: #faf8f3;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+  background: white;
+  color: var(--text-dark);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #cba847;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(203, 168, 71, 0.1);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #999;
-  opacity: 1;
+  border-color: var(--accent);
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
-  line-height: 1.5;
+  min-height: 100px;
+  font-family: inherit;
 }
 
-.form-group select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%2363100d' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 20px center;
-  background-size: 12px;
-  padding-right: 50px;
-}
-
-.form-submit {
+.form-actions {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
-.submit-btn {
-  background: #63100d;
-  color: white;
+.submit-button {
+  background: var(--primary);
+  color: var(--text-light);
   border: none;
-  padding: 18px 60px;
-  border-radius: 30px;
-  font-size: 1.2rem;
+  padding: 16px 32px;
+  border-radius: 12px;
   font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  min-width: 250px;
+  transition: all 0.2s ease;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-.submit-btn:hover {
-  background: #421212;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(99, 16, 13, 0.4);
+.submit-button:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(203, 168, 71, 0.3);
 }
 
-.submit-btn:active {
-  transform: translateY(-1px);
-}
-
-.form-footer {
+.submit-note {
+  font-size: 0.85rem;
+  color: var(--primary);
+  opacity: 0.7;
+  margin: 12px 0 0 0;
   text-align: center;
-  margin-top: 30px;
-  padding-top: 30px;
-  border-top: 1px solid #e8e0d0;
 }
 
-.form-footer p {
-  color: #666;
-  font-size: 1.1rem;
-  font-style: italic;
-}
-
-/* Responsive Design */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .garrison-enquiry-form-section {
-    padding: 60px 0;
+  .garrison-enquiry-container {
+    padding: 70px 16px 30px;
   }
   
-  .form-header h1 {
-    font-size: 2.2rem;
+  .enquiry-header h1 {
+    font-size: 1.6rem;
   }
   
-  .enquiry-form {
-    padding: 30px 25px;
+  .enquiry-header p {
+    font-size: 1rem;
+  }
+  
+  .rate-section,
+  .calendar-section,
+  .selection-summary,
+  .enquiry-form-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .rate-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .rate-card {
+    padding: 16px;
+    min-height: 70px;
   }
   
   .form-row {
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 16px;
   }
   
-  .submit-btn {
-    padding: 16px 40px;
-    font-size: 1.1rem;
-    min-width: 200px;
-    width: 100%;
+  .calendar-cell {
+    min-height: 50px;
+    padding: 4px;
+  }
+  
+  .date-number {
+    font-size: 0.8rem;
+  }
+  
+  .date-price, .booked-label {
+    font-size: 0.65rem;
+  }
+
+  .submit-button {
+    padding: 14px 24px;
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
+  .garrison-enquiry-container {
+    padding: 60px 12px 20px;
   }
   
-  .form-header h1 {
-    font-size: 1.8rem;
+  .enquiry-header h1 {
+    font-size: 1.4rem;
   }
   
-  .form-header p {
-    font-size: 1rem;
+  .rate-section,
+  .calendar-section,
+  .selection-summary,
+  .enquiry-form-section {
+    padding: 16px;
+    border-radius: 12px;
   }
   
-  .enquiry-form {
-    padding: 25px 20px;
+  .rate-tabs .tab {
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
   
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 12px 15px;
+  .calendar-header {
+    margin-bottom: 16px;
   }
   
-  .submit-btn {
-    padding: 14px 30px;
-    font-size: 1rem;
+  .month-display {
+    font-size: 1.1rem;
+  }
+  
+  .weekday {
+    font-size: 0.8rem;
+    padding: 8px 0;
+  }
+  
+  .calendar-cell {
+    min-height: 45px;
   }
 }
 
-/* Loading state for form submission */
-.submit-btn:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+@media (max-width: 360px) {
+  .calendar-cell {
+    min-height: 40px;
+  }
+  
+  .date-number {
+    font-size: 0.75rem;
+  }
+  
+  .date-price, .booked-label {
+    font-size: 0.6rem;
+  }
 }
 
-.submit-btn:disabled:hover {
-  background: #ccc;
-  transform: none;
-  box-shadow: none;
-}
-
-/* Success state animation */
-@keyframes successPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.submit-btn.success {
-  background: #2e7d32;
-  animation: successPulse 0.6s ease;
+/* Ensure it doesn't block navbar */
+@media (min-width: 1024px) {
+  .garrison-enquiry-container {
+    padding-top: 100px;
+  }
 }

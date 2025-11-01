@@ -1,0 +1,82 @@
+/* Multi-step form */
+.quotation-form .form-section {
+  transition: all 0.4s ease;
+}
+
+.quotation-form .form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.next-button,
+.prev-button {
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.next-button:hover,
+.prev-button:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.preference-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.file-upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.file-upload-label {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 14px;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.file-upload-label:hover {
+  border-color: var(--accent);
+}
+
+.upload-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.upload-text {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.upload-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

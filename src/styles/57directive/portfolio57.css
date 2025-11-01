@@ -1,0 +1,237 @@
+:root {
+  --primary: #63100d;
+  --secondary: #f8f3e7;
+  --accent: #cba847;
+  --text-dark: #2d3748;
+  --text-light: #ffffff;
+  --muted: #718096;
+  --border: #e2e8f0;
+}
+
+/* MAIN SECTION */
+.portfolio-57-section {
+  background: var(--secondary);
+  padding: 0;
+  margin: 0;
+  font-family: 'Angsana New', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-57-section .container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* SECTION HEADER ON FIRST SLIDE */
+.section-header-on-slide {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--primary);
+  opacity: 0.8;
+  font-weight: 400;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* CAROUSEL */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.7s ease;
+  width: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+/* PORTFOLIO ITEM */
+.portfolio-item {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-height: 800px;
+  overflow: hidden;
+  background: transparent; /* continuous look */
+}
+
+.portfolio-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0; /* full width, no corners */
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* OVERLAY */
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(99,16,13,0.7), rgba(0,0,0,0.2));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  color: #fff;
+}
+
+.portfolio-item-category {
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  padding: 4px 14px;
+  display: inline-block;
+}
+
+.portfolio-item-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+/* NAVIGATION */
+.carousel-navigation-below {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  margin: 30px auto;
+  max-width: 1400px;
+  padding: 0 40px;
+}
+
+.slide-counter {
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.current-slide {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.divider {
+  margin: 0 5px;
+  opacity: 0.7;
+}
+
+.total-slides {
+  opacity: 0.6;
+}
+
+.nav-arrow {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 22px;
+  color: #444;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-arrow:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .portfolio-item {
+    height: 70vh;
+  }
+  .portfolio-item-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-item {
+    height: 60vh;
+  }
+  .portfolio-overlay {
+    opacity: 1;
+    padding: 1.5rem;
+  }
+  .portfolio-item-title {
+    font-size: 1.3rem;
+  }
+  .portfolio-item-category {
+    font-size: 0.9rem;
+  }
+  .carousel-navigation-below {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-item {
+    height: 50vh;
+  }
+  .portfolio-item-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Full width and continuous */
+.portfolio-57-section,
+.carousel-container,
+.carousel-track,
+.carousel-slide,
+.portfolio-item,
+.portfolio-image-wrapper,
+.portfolio-image {
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

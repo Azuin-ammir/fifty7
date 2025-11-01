@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  font-family: 'Angsana New', 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Angsana New', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background-color: #000;
   margin: 0;
   padding: 0;
@@ -71,22 +71,32 @@
 /* WhatsApp Floating Icon */
 .whatsapp-float {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 1000;
+  bottom: 120px; /* lifted above bottom navbar */
+  right: 20px; /* aligned right like raffles */
+  z-index: 3000; /* ensures it's always on top */
 }
 
 .whatsapp-link img {
-  width: 60px;
-  height: 60px;
+  width: 46px; /* 20% smaller */
+  height: 46px; /* 20% smaller */
   border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease;
 }
 
 .whatsapp-link:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
+
+/* Mobile - push it slightly up to avoid overlap even in smaller screens */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 100px;
+    right: 15px;
+  }
+}
+
+
 
 /* Mobile Fixes */
 @media (max-width: 768px) {

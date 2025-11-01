@@ -1,0 +1,111 @@
+/* Existing styles above remain unchanged */
+
+/* Mobile Bottom Navbar */
+@media (max-width: 768px) {
+  .carpentry-enquiry-section {
+    display: none; /* Hide full form on mobile */
+  }
+
+  .carpentry-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: #63100d;
+    z-index: 9999;
+    padding: 12px 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+
+  .bottom-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bottom-nav-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #63100d;
+    background: #f8f3e7;
+    border: 2px solid transparent;
+    font-family: 'Angsana New', serif;
+    text-transform: uppercase;
+  }
+
+  .bottom-nav-btn:active {
+    background: #e8e3d7;
+    transform: scale(0.98);
+  }
+
+  body {
+    padding-bottom: 80px;
+  }
+
+  /* Mobile Form Modal */
+  .mobile-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+
+  .mobile-form-container {
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .mobile-form-container h3 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-family: 'Angsana New', serif;
+    color: var(--primary);
+  }
+
+  .mobile-form input,
+  .mobile-form select,
+  .mobile-form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    font-size: 1rem;
+    font-family: 'Angsana New', serif;
+  }
+
+  .mobile-submit-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}

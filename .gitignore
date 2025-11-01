@@ -18,7 +18,12 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-public/Videos/
+# npm-debug.log*
+# yarn-debug.log*
+# yarn-error.log*
+# public/Videos/
+
+# # public/Videos/*.mp4
+# # *.mp4
+# # *.mov
+# *.avi

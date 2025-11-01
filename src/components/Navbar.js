@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +17,7 @@ function Header() {
   const navRef = useRef(null);
   const businessDropdownRef = useRef(null);
   const businessTimeoutRef = useRef(null);
+  const location = useLocation();
 
   const isMobile = window.innerWidth <= 768;
 
@@ -109,7 +110,7 @@ function Header() {
     if (!isMobile) {
       businessTimeoutRef.current = setTimeout(() => {
         setBusinessOpen(false);
-      }, 300); // 300ms delay before closing
+      }, 300);
     }
   };
 
@@ -129,6 +130,11 @@ function Header() {
     }
   };
 
+  // Function to handle navigation and close mobile menu
+  const handleNavigation = () => {
+    closeMobileMenu();
+  };
+
   return (
     <header className={`main-header ${scrolled ? "scrolled" : ""}`} ref={navRef}>
       <nav className={`navbar ${scrolled ? "scrolled" : "initial"} ${hideNav ? "hide-on-scroll" : ""}`}>
@@ -142,10 +148,18 @@ function Header() {
           </Link>
 
           <ul className={`navbar-nav nav-links ${scrolled ? "visible" : "hidden"} ${mobileOpen ? "show" : ""}`}>
-            <li className="nav-item"><a href="#home" onClick={closeMobileMenu}>Home</a></li>
-            <li className="nav-item"><a href="#about" onClick={closeMobileMenu}>About</a></li>
-            <li className="nav-item"><a href="#inquiries" onClick={closeMobileMenu}>Inquiries</a></li>
-            <li className="nav-item"><a href="#gallery" onClick={closeMobileMenu}>Gallery</a></li>
+            <li className="nav-item">
+              <Link to="/" onClick={handleNavigation}>Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" onClick={handleNavigation}>About</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/inquiries" onClick={handleNavigation}>Inquiries</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/gallery" onClick={handleNavigation}>Gallery</Link>
+            </li>
             
             <li 
               className={`nav-item dropdown-parent ${businessOpen ? "open" : ""}`}
@@ -170,27 +184,29 @@ function Header() {
                 onMouseLeave={handleDropdownMouseLeave}
               >
                 <li>
-                  <Link to="/garrison" onClick={closeMobileMenu}>Garrison</Link>
+                  <Link to="/garrison" onClick={handleNavigation}>Garrison</Link>
                 </li>
                 <li>
-                  <Link to="/kindrette" onClick={closeMobileMenu}>Kindrette</Link>
+                  <Link to="/57directive" onClick={handleNavigation}>Renovate Space</Link>
                 </li>
                 <li>
-                  <Link to="/business3" onClick={closeMobileMenu}>Business 3</Link>
+                  <Link to="/academy" onClick={handleNavigation}>Book A Carpentry Lesson</Link>
                 </li>
                 <li>
-                  <Link to="/business4" onClick={closeMobileMenu}>Business 4</Link>
+                  <Link to="/realestate" onClick={handleNavigation}>Sell Your Place</Link>
                 </li>
                 <li>
-                  <Link to="/fiftyseven-market" onClick={closeMobileMenu}>FiftySeven Market</Link>
+                  <Link to="/fiftyseven-market" onClick={handleNavigation}>FiftySeven Market</Link>
                 </li>
                 <li>
-                  <Link to="/events" onClick={closeMobileMenu}>Events</Link>
+                  <Link to="/events" onClick={handleNavigation}>Events</Link>
                 </li>
               </ul>
             </li>
             
-            <li className="nav-item"><Link to="/contact" onClick={closeMobileMenu}>Contact Us</Link></li>
+            <li className="nav-item">
+              <Link to="/contact" onClick={handleNavigation}>Contact Us</Link>
+            </li>
           </ul>
 
           <div className="top-bar-items" ref={topBarRef}>
@@ -215,14 +231,14 @@ function Header() {
             </div>
 
             <div className={`top-item`}>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact" onClick={handleNavigation}>Contact</Link>
             </div>
 
             <div className={`top-item ${accountOpen ? "open" : ""}`}>
               <button className="top-button" onClick={toggleAccount}>Account</button>
               <ul className="dropdown">
-                <li><Link to="/login" onClick={() => setAccountOpen(false)}>Login</Link></li>
-                <li><Link to="/create-account" onClick={() => setAccountOpen(false)}>Create Account</Link></li>
+                <li><Link to="/login" onClick={handleNavigation}>Login</Link></li>
+                <li><Link to="/create-account" onClick={handleNavigation}>Create Account</Link></li>
                 <li className="account-note">
                   Create an account to take advantage of the member rate.
                 </li>

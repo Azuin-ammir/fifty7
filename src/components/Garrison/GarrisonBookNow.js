@@ -5,15 +5,15 @@ import "../../styles/garrison/garrison-booknow.css";
 
 function GarrisonBookNow() {
   const slides = [
-    { content: { title: "Features of Space", image: "/Images/Garrison/Booknow/page1.jpg" } },
-    { content: { title: "Features of Space", image: "/Images/Garrison/Booknow/page2.jpg" } },
-    { content: { title: "Types of Events", image: "/Images/Garrison/Booknow/page3.jpg", route: "/garrison/events" } },
-    { content: { title: "About Us", image: "/Images/Garrison/Booknow/page4.jpg", route: "/garrison/about" } },
-    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page5.jpg", route: "/garrison/gallery" } },
-    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page6.jpg", route: "/garrison/gallery" } },
-    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page7.jpg", route: "/garrison/gallery" } },
-    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page8.jpg", route: "/garrison/gallery" } },
-    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page9.jpg", route: "/garrison/gallery" } },
+    { content: { title: "Features of Space", image: "/Images/Garrison/Booknow/page1.png" } },
+    { content: { title: "Features of Space", image: "/Images/Garrison/Booknow/page2.png" } },
+    { content: { title: "Types of Events", image: "/Images/Garrison/Booknow/page3.png", route: "/garrison/events" } },
+    { content: { title: "About Us", image: "/Images/Garrison/Booknow/page4.png", route: "/garrison/about" } },
+    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page5.png", route: "/garrison/gallery" } },
+    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page6.png", route: "/garrison/gallery" } },
+    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page7.png", route: "/garrison/gallery" } },
+    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page8.png", route: "/garrison/gallery" } },
+    { content: { title: "Gallery", image: "/Images/Garrison/Booknow/page9.png", route: "/garrison/gallery" } },
   ];
 
   // === Responsive cards per page ===

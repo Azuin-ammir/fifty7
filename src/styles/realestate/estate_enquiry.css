@@ -1,0 +1,265 @@
+/* Real Estate Enquiry Styles */
+.realestate-enquiry-section {
+  padding: 60px 20px;
+  background: #f8f3e7;
+  font-family: 'Angsana New', serif;
+}
+
+.realestate-enquiry-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.realestate-enquiry-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.realestate-enquiry-header h2 {
+  color: #63100d;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.realestate-enquiry-header p {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.realestate-enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.realestate-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.realestate-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.realestate-form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.realestate-form-group input,
+.realestate-form-group select,
+.realestate-form-group textarea {
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Angsana New', serif;
+  transition: border-color 0.3s ease;
+}
+
+.realestate-form-group input:focus,
+.realestate-form-group select:focus,
+.realestate-form-group textarea:focus {
+  outline: none;
+  border-color: #63100d;
+}
+
+.realestate-form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.realestate-submit-button {
+  background: #63100d;
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Angsana New', serif;
+  transition: background-color 0.3s ease;
+}
+
+.realestate-submit-button:hover {
+  background: #4a0c0a;
+}
+
+.realestate-submit-note {
+  margin-top: 12px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Mobile Bottom Navbar */
+.realestate-bottom-nav {
+  display: none;
+}
+
+/* Mobile Form Modal */
+.realestate-mobile-form-overlay {
+  display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .realestate-enquiry-section {
+    display: block; /* Show on all devices */
+    padding: 40px 20px;
+  }
+
+  .realestate-enquiry-container {
+    padding: 20px;
+  }
+
+  .realestate-form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .realestate-enquiry-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Mobile Bottom Navbar */
+  .realestate-bottom-nav {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #63100d;
+    z-index: 1000;
+    padding: 12px 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+
+  .realestate-bottom-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .realestate-bottom-nav-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #63100d;
+    background: #f8f3e7;
+    border: 2px solid transparent;
+    font-family: 'Angsana New', serif;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .realestate-bottom-nav-btn:active {
+    background: #e8e3d7;
+    transform: scale(0.98);
+  }
+
+  body {
+    padding-bottom: 80px;
+  }
+
+  /* Mobile Form Modal */
+  .realestate-mobile-form-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+  }
+
+  .realestate-mobile-form-container {
+    width: 90%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .realestate-mobile-form-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Angsana New', serif;
+    color: #63100d;
+    font-size: 1.5rem;
+  }
+
+  .realestate-mobile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .realestate-mobile-form input,
+  .realestate-mobile-form select,
+  .realestate-mobile-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1.5px solid #ddd;
+    font-size: 1rem;
+    font-family: 'Angsana New', serif;
+  }
+
+  .realestate-mobile-submit-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: #63100d;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Angsana New', serif;
+  }
+
+  .realestate-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .realestate-enquiry-section {
+    padding: 20px 15px;
+  }
+  
+  .realestate-enquiry-container {
+    padding: 15px;
+  }
+  
+  .realestate-enquiry-header h2 {
+    font-size: 1.8rem;
+  }
+}

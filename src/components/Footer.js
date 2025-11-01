@@ -30,7 +30,7 @@ function Footer() {
           <div className="col-md-4 mb-4">
             <h5 className="footer-title">Stay With Us</h5>
             <ul className="footer-links list-unstyled">
-              <li><a href="#reserve">Reserve Your Stay</a></li>
+              <li><a href="#reserve">Reserve Your Date</a></li>
               <li><a href="#manage">Manage Reservation</a></li>
               <li><a href="#directions">Get Directions</a></li>
               <li><a href="#faq">FAQs</a></li>

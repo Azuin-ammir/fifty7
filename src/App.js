@@ -25,7 +25,16 @@ import GarrisonHistoryPage from "./pages/Garrison/GarrisonHistoryPage";
 import GarrisonGalleryPage from "./pages/Garrison/GarrisonGalleryPage";
 import GarrisonEnquiryPage from "./pages/Garrison/GarrisonEnquiryPage";
 
+import FiftySevenDirective from "./pages/57Directive/57Directive";
+import EnquirePage from "./pages/57Directive/EnquirePage";
+
+import Academy from "./pages/Academy/Academy";
+
+import RealEstate from "./pages/Realestate/Realestate";
+
+
 import "./App.css";
+import SellYourPlace from "./pages/Realestate/Realestate";
 
 function Layout() {
   const location = useLocation();
@@ -57,6 +66,16 @@ function Layout() {
           <Route path="/business4" element={<Business4 />} />
           <Route path="/events" element={<Events />} />
           <Route path="/fiftyseven-market" element={<FiftySevenMarket />} />
+
+          <Route path="/57directive" element={<FiftySevenDirective />} />
+          <Route path="/57directive/enquirepage" element={<EnquirePage />} />
+
+
+
+          <Route path="/academy" element={<Academy />} />
+
+          <Route path="/realestate" element={<SellYourPlace />} />
+
         </Routes>
       </main>
 

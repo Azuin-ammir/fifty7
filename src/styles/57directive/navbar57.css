@@ -1,0 +1,515 @@
+/* ================================
+   RESET & BASE STYLES
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Remove any default dropdown arrows */
+.nav-item a::after,
+.nav-item a::before,
+.dropdown-toggle::after,
+.dropdown-toggle::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* ================================
+   BASE NAVBAR - RAFFLES STYLE
+================================ */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar {
+  position: relative;
+  width: 100%;
+  transition: all 0.5s ease;
+  padding: 1rem 3rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.navbar.initial {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 100%);
+  backdrop-filter: blur(0px);
+  justify-content: center;
+}
+
+.navbar.scrolled {
+  background-color: #63100d;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  padding: 0.75rem 3rem;
+  justify-content: space-between;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ================================
+   LOGO POSITIONING
+================================ */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease;
+  position: absolute;
+}
+
+.logo-center {
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+}
+
+.logo-left {
+  left: 0;
+  transform: none;
+  position: relative;
+}
+
+.navbar-brand img {
+  height: 50px;
+  transition: all 0.5s ease;
+  filter: brightness(0) invert(1);
+}
+
+.navbar.scrolled .navbar-brand img {
+  filter: none;
+}
+
+/* ================================
+   NAV LINKS
+================================ */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease;
+  flex: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.nav-links.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.nav-links.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.nav-item {
+  margin: 0 1rem;
+  position: relative;
+}
+
+.nav-item a {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-item a:hover {
+  color: #ffff;
+  border-bottom: 2px solid #ffff;
+}
+
+/* ================================
+   OUR BUSINESS DROPDOWN - FIXED
+================================ */
+.dropdown-parent {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Single arrow - remove any duplicates */
+.dropdown-arrow {
+  font-size: 0.6rem;
+  transition: transform 0.3s ease;
+  margin-left: 4px;
+  display: inline-block;
+}
+
+.dropdown-parent.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.business-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  list-style: none;
+  padding: 0.75rem 0;
+  min-width: 200px;
+  z-index: 3000;
+  display: none;
+  flex-direction: column;
+  margin-top: 8px; /* Reduced gap */
+}
+
+/* Remove any triangle/arrow pseudo-elements that might be creating second arrow */
+.business-dropdown::before,
+.business-dropdown::after,
+.dropdown-parent::after,
+.dropdown-parent::before {
+  display: none;
+  content: none;
+}
+
+/* Create a proper triangle for the dropdown */
+.business-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #fff;
+  display: block;
+}
+
+.dropdown-parent.open .business-dropdown {
+  display: flex;
+}
+
+.business-dropdown li {
+  margin: 0;
+}
+
+.business-dropdown li a {
+  color: #333;
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+  border-bottom: none;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.business-dropdown li a:hover {
+  background: #f8f5ee;
+  color: #bfa15a;
+  transform: none;
+}
+
+.navbar.scrolled .business-dropdown li a {
+  color: #333;
+}
+
+.navbar.scrolled .business-dropdown li a:hover {
+  color: #bfa15a;
+  background: #f8f5ee;
+}
+
+/* ================================
+   TOP BAR ITEMS
+================================ */
+.top-bar-items {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 2000;
+}
+
+.top-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.top-item .top-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.top-item .top-button:hover {
+  color: #63100d;
+}
+
+.navbar.scrolled .top-item .top-button {
+  color: #ffff;
+}
+
+.navbar.scrolled .top-item .top-button:hover {
+  color: #63100d;
+}
+
+.top-item a {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.top-item a:hover {
+  color: #ffff;
+}
+
+.navbar.scrolled .top-item a {
+  color: #ffff;
+}
+
+.navbar.scrolled .top-item a:hover {
+  color: #ffff;
+}
+
+.top-item .dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 140px;
+  z-index: 3000;
+  display: none;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.top-item .dropdown li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #333;
+  transition: background 0.2s ease;
+  text-align: left;
+}
+
+.top-item .dropdown li:hover {
+  background: #f2e6c9;
+}
+
+.top-item .dropdown .account-note {
+  font-size: 0.8rem;
+  color: #555;
+  padding: 0.5rem 1rem;
+  cursor: default;
+  pointer-events: none;
+  border-top: 1px solid #eee;
+  margin-top: 0.5rem;
+}
+
+.top-item.open .dropdown {
+  display: flex;
+}
+
+/* ================================
+   MOBILE TOGGLER
+================================ */
+.navbar-toggler {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  z-index: 1600;
+  cursor: pointer;
+}
+
+/* ================================
+   MOBILE STYLES
+================================ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navbar.scrolled {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .navbar-toggler {
+    display: block;
+    order: 2;
+  }
+
+  .top-bar-items {
+    display: none;
+  }
+
+  .logo-center {
+    position: relative;
+    left: 0;
+    transform: none;
+    order: 1;
+    flex: 1;
+    text-align: center;
+  }
+
+  .logo-left {
+    position: relative;
+    left: 0;
+    transform: none;
+    order: 1;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    background-color: #bfa15a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 5rem 2rem 2rem;
+    display: none;
+    z-index: 1500;
+    overflow-y: auto;
+    justify-content: flex-start;
+    max-width: none;
+    margin: 0;
+  }
+
+  .nav-links.hidden,
+  .nav-links.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: all;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-item {
+    margin: 0.5rem 0 !important;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-item a {
+    font-size: 1.2rem;
+    padding: 1rem 0;
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Mobile dropdown styles */
+  .dropdown-parent {
+    position: static;
+  }
+
+  .business-dropdown {
+    position: static;
+    transform: none;
+    background: rgba(255,255,255,0.1);
+    box-shadow: none;
+    border-radius: 0;
+    margin-top: 0;
+    display: none;
+    padding: 0.5rem 0 0.5rem 2rem;
+    min-width: auto;
+  }
+
+  .business-dropdown::before {
+    display: none;
+  }
+
+  .dropdown-parent.open .business-dropdown {
+    display: flex;
+  }
+
+  .business-dropdown li a {
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .business-dropdown li a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+
+  .nav-links.show .dropdown-parent .business-dropdown {
+    display: none;
+  }
+
+  .nav-links.show .dropdown-parent.open .business-dropdown {
+    display: flex;
+  }
+
+  .navbar.hide-on-scroll {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+}
+
+/* ================================
+   HERO BANNER LAYERING
+================================ */
+.hero-banner {
+  position: relative;
+  z-index: 0;
+  margin-top: 0;
+}
