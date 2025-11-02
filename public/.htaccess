@@ -1,11 +1,15 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
   
-  # Serve existing files and directories directly
+  # Don't rewrite if the file or directory exists
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   
-  # If the requested file doesn't exist, serve index.html for client-side routing
+  # Don't rewrite requests for static assets (double check)
+  RewriteCond %{REQUEST_URI} !^/static/
+  
+  # If the requested file doesn't exist and it's not a static asset, serve index.html
   RewriteRule . /index.html [L]
 </IfModule>
 
