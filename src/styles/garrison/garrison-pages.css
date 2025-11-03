@@ -5,7 +5,7 @@
 }
 
 .garrison-subpage-hero {
-  background: linear-gradient(135deg, #63100d 0%, #421212 100%);
+  background: linear-gradient(135deg, var(--color-main) 0%, var(--color-third) 100%);
   color: white;
   padding: 80px 0 60px;
   text-align: center;
@@ -26,7 +26,7 @@
 
 .garrison-subpage-content {
   padding: 80px 0;
-  background: #f8f3e7;
+  background: var(--color-last);
 }
 
 .garrison-content-image {
@@ -65,7 +65,7 @@
 }
 
 .garrison-feature-icon {
-  background: #cba847;
+  background: var(--color-secondary);
   color: #63100d;
   width: 24px;
   height: 24px;
@@ -189,7 +189,7 @@
 }
 
 .garrison-directions-btn {
-  background: #cba847;
+  background: var(--color-secondary);
   color: #63100d;
   border: none;
   padding: 10px 20px;
@@ -224,7 +224,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #cba847;
+  background: var(--color-secondary);
   transform: translateX(-50%);
 }
 

@@ -1,7 +1,7 @@
 :root {
   --primary: #63100d;
-  --secondary: #f8f3e7;
-  --accent: #cba847;
+  --secondary: var(--color-last);
+  --accent: var(--color-secondary);
   --text-dark: #2d3748;
   --text-light: #ffffff;
   --muted: #718096;

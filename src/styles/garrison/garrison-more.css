@@ -1,6 +1,6 @@
 /* Seamlessly attached after BookNow */
 .garrison-services-section {
-  background: #f8f3e7;
+  background: var(--color-last);
   padding: 100px 0;
   font-family: "Angsana New", serif;
   margin: 0;

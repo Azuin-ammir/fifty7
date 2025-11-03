@@ -1,7 +1,7 @@
 /* Desktop view unchanged */
 .garrison-enquire-now-section {
   padding: 80px 0;
-  background: #f8f3e7;
+  background: var(--color-last);
   width: 100%;
   box-sizing: border-box;
 }
@@ -48,7 +48,7 @@
 }
 
 .enquire-btn:hover {
-  background: #421212;
+  background: var(--color-third);
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(99, 16, 13, 0.4);
 }
@@ -109,7 +109,7 @@
 
   /* Active state for touch feedback */
   .enquire-btn:active {
-    background: #421212;
+    background: var(--color-third);
     transform: scale(0.98);
   }
 

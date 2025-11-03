@@ -41,7 +41,7 @@ function GarrisonMore() {
           <p>
             Elevating occasions with refined event rentals for both social and corporate gatherings.
           </p>
-          <Link to="/garrison/services" className="discover-all">
+          <Link to="/garrison/gallery" className="discover-all">
             Discover All
           </Link>
         </div>

@@ -170,22 +170,22 @@ function Navbar57() {
                 onMouseLeave={handleDropdownMouseLeave}
               >
                 <li>
-                  <Link to="/garrison" onClick={closeMobileMenu}>Garrison</Link>
+                  <Link to="/garrison" onClick={handleLinkClick}>Garrison</Link>
                 </li>
                 <li>
-                  <Link to="/57directive" onClick={closeMobileMenu}>Renovate Space</Link>
+                  <Link to="/57directive/enquirepage" onClick={handleLinkClick}>Renovate Space</Link>
                 </li>
                 <li>
-                  <Link to="/business3" onClick={closeMobileMenu}>Book A Carpentry Lesson</Link>
+                  <Link to="/academy" onClick={handleLinkClick}>Book A Carpentry Lesson</Link>
                 </li>
                 <li>
-                  <Link to="/business4" onClick={closeMobileMenu}>Sell Your Place</Link>
+                  <Link to="/realestate" onClick={handleLinkClick}>Sell Your Place</Link>
                 </li>
                 <li>
-                  <Link to="/fiftyseven-market" onClick={closeMobileMenu}>FiftySeven Market</Link>
+                  <Link to="/fiftyseven-market" onClick={handleLinkClick}>FiftySeven Market</Link>
                 </li>
                 <li>
-                  <Link to="/events" onClick={closeMobileMenu}>Events</Link>
+                  <Link to="/events" onClick={handleLinkClick}>Events</Link>
                 </li>
               </ul>
             </li>

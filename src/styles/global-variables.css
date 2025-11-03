@@ -1,0 +1,62 @@
+/* Global Color and Font Variables */
+:root {
+  /* Color Scheme - Standardized */
+  --color-main: #63100d;           /* Maroon - main color */
+  --color-secondary: #cba847;      /* Yellow Gold - secondary */
+  --color-third: #421212;           /* Burgundy - third */
+  --color-last: #d8bf8b;            /* Beige - last */
+  
+  /* Text Colors - Only WHITE or BLACK */
+  --text-white: #ffffff;
+  --text-black: #000000;
+  
+  /* Legacy color mappings for backward compatibility */
+  --primary: var(--color-main);
+  --secondary: var(--color-last);
+  --accent: var(--color-secondary);
+  --text-light: var(--text-white);
+  --text-dark: var(--text-black);
+  --dark: var(--text-black);
+  --light: var(--text-white);
+  
+  /* Font - Standardized to Angsana New */
+  --font-primary: 'Angsana New', serif;
+  --font-family: var(--font-primary);
+}
+
+/* Global Font Application */
+* {
+  font-family: var(--font-primary);
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-black);
+}
+
+/* Ensure all headings use Angsana New */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: var(--text-black);
+}
+
+/* Ensure all paragraphs use Angsana New */
+p {
+  font-family: var(--font-primary);
+}
+
+/* Links */
+a {
+  font-family: var(--font-primary);
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-primary);
+}
+
+/* Input fields */
+input, textarea, select {
+  font-family: var(--font-primary);
+}
+

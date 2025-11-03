@@ -32,30 +32,77 @@ body, html {
   background-color: transparent;
   display: flex;
   align-items: center;
+  justify-content: flex-start !important; /* Override any center alignment */
 }
 
 .navbar.initial {
   background: transparent;
-  justify-content: center;
+  justify-content: flex-start !important;
 }
 
 .navbar.scrolled {
-  background-color: #63100d;       /* maroon */
-  border-bottom: 3px solid #bfa15a; /* gold border */
+  background-color: var(--color-main);       /* maroon */
+  border-bottom: 3px solid var(--color-secondary); /* yellow border */
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  justify-content: space-between;
+  justify-content: flex-start !important;
   padding: 0.75rem 3rem;
   transition: all 0.3s ease;
+}
+
+/* Mobile: space-between layout */
+@media (max-width: 768px) {
+  .navbar.initial,
+  .navbar.scrolled {
+    justify-content: space-between;
+  }
 }
 
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   position: relative;
+  gap: 2rem;
+}
+
+/* Mobile: space-between layout */
+@media (max-width: 768px) {
+  .nav-container {
+    justify-content: space-between;
+    max-width: 100%;
+  }
+}
+
+/* Desktop: nav-links on left, logo centered, top-bar-items on right */
+@media (min-width: 769px) {
+  .nav-container {
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    padding: 0;
+    position: relative;
+  }
+  
+  .nav-links {
+    order: 1;
+    flex: 0 0 auto;
+    margin-right: auto;
+    z-index: 100;
+  }
+  
+  .navbar-brand {
+    order: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .top-bar-items {
+    order: 3;
+    margin-left: auto;
+    flex-shrink: 0;
+    z-index: 100;
+  }
 }
 
 /* ================================
@@ -65,19 +112,22 @@ body, html {
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
-  position: absolute;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .logo-center {
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1100;
 }
 
 .logo-left {
-  left: 0;
-  transform: none;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
 }
 
 /* default logo */
@@ -98,12 +148,25 @@ body, html {
 /* ================================
    NAV LINKS
 ================================ */
-.nav-links { display:flex; flex-direction:row; list-style:none; margin:0; padding:0; justify-content:center; align-items:center; transition:all 0.3s ease; max-width:600px; margin:0 auto; }
+.navbar-nav {
+  justify-content: flex-start !important;
+}
+
+.nav-links { 
+  display: flex; 
+  flex-direction: row; 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  justify-content: flex-start !important; 
+  align-items: center; 
+  transition: all 0.3s ease; 
+}
 .nav-links.hidden { opacity:0; visibility:hidden; transform:translateY(-10px); pointer-events:none; }
 .nav-links.visible { opacity:1; visibility:visible; transform:translateY(0); pointer-events:all; }
 
 .nav-item { margin:0 1rem; position:relative; }
-.nav-item a { color:#fff; font-family:"Playfair Display", serif; font-size:0.9rem; letter-spacing:0.5px; text-decoration:none; border-bottom:2px solid transparent; padding:0.5rem 0; transition:0.3s ease; }
+.nav-item a { color:#fff; font-family:"Angsana New", serif; font-size:0.9rem; letter-spacing:0.5px; text-decoration:none; border-bottom:2px solid transparent; padding:0.5rem 0; transition:0.3s ease; }
 .nav-item a:hover { border-bottom:2px solid #fff; color:#fff; }
 
 /* dropdown */
@@ -130,18 +193,75 @@ body, html {
 
 .dropdown-parent.open .business-dropdown { display:flex; }
 
-.business-dropdown li a { color:#333; font-family:"Playfair Display", serif; font-size:0.9rem; padding:0.6rem 1.5rem; display:block; transition:0.3s ease; text-align:left; }
+.business-dropdown li a { color:#000; font-family:"Angsana New", serif; font-size:0.9rem; padding:0.6rem 1.5rem; display:block; transition:0.3s ease; text-align:left; }
 .business-dropdown li a:hover { color:#bfa15a; background:#f8f5ee; }
 
 /* top-bar items */
 .top-bar-items { display:flex; align-items:center; gap:1.5rem; z-index:2000; }
 .top-item { position:relative; cursor:pointer; }
-.top-item .top-button { background:none; border:none; color:#fff; font-family:"Playfair Display", serif; font-size:0.85rem; cursor:pointer; transition:0.3s ease; padding:0; }
+.top-item .top-button { background:none; border:none; color:#fff; font-family:"Angsana New", serif; font-size:0.85rem; cursor:pointer; transition:0.3s ease; padding:0; }
 .top-item .top-button:hover { color:#63100d; }
 .navbar.scrolled .top-item .top-button { color:#fff; }
 .navbar.scrolled .top-item .top-button:hover { color:#63100d; }
 .top-item a { color:#fff; text-decoration:none; transition:0.3s ease; }
 .top-item a:hover { color:#fff; }
+
+/* Account dropdown menu */
+.top-item .dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  z-index: 3000;
+  display: none;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.top-item .dropdown li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-black);
+  font-family: "Angsana New", serif;
+  transition: background 0.2s ease;
+  text-align: left;
+}
+
+.top-item .dropdown li a {
+  color: var(--text-black);
+  text-decoration: none;
+  display: block;
+}
+
+.top-item .dropdown li:hover {
+  background: var(--color-last);
+}
+
+.top-item .dropdown li a:hover {
+  color: var(--color-main);
+}
+
+.top-item .dropdown .account-note {
+  font-size: 0.8rem;
+  color: var(--text-black);
+  font-family: "Angsana New", serif;
+  padding: 0.5rem 1rem;
+  cursor: default;
+  pointer-events: none;
+  border-top: 1px solid #eee;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.top-item.open .dropdown {
+  display: flex;
+}
 
 /* mobile toggler */
 .navbar-toggler { display:none; font-size:1.5rem; background:none; border:none; color:#fff; cursor:pointer; z-index:1600; }

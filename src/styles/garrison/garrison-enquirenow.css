@@ -1,7 +1,7 @@
 /* Desktop view unchanged */
 .garrison-enquire-now-section {
   padding: 80px 0;
-  background: #f8f3e7;
+  background: var(--color-last);
   width: 100%;
   box-sizing: border-box;
 }
@@ -48,7 +48,7 @@
 }
 
 .enquire-btn:hover {
-  background: #421212;
+  background: var(--color-third);
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(99, 16, 13, 0.4);
 }
@@ -87,7 +87,7 @@
     margin: 0;
     padding: 16px 0; /* Comfortable padding */
     font-size: 1rem;
-    background: #f8f3e7; /* CREAM button background */
+    background: var(--color-last); /* CREAM button background */
     color: #63100d; /* MAROON text color */
     font-weight: 700;
     text-transform: uppercase;
@@ -100,7 +100,7 @@
   .enquire-btn:hover {
     transform: none;
     box-shadow: none;
-    background: #f8f3e7; /* Keep same background on hover */
+    background: var(--color-last); /* Keep same background on hover */
     color: #63100d; /* Keep same text color on hover */
   }
 

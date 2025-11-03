@@ -1,8 +1,8 @@
 /* src/styles/57directive/enquire57.css */
 :root {
   --primary: #63100d;
-  --secondary: #f8f3e7;
-  --accent: #cba847;
+  --secondary: var(--color-last);
+  --accent: var(--color-secondary);
   --light: #ffffff;
   --dark: #333333;
   --gray: #6b7280;

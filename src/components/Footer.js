@@ -1,9 +1,38 @@
 // src/components/Footer.js
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ".././styles/footer.css";
 
-function Footer({ logo }) { // Accept a logo prop
+function Footer({ logo }) { // Accept a logo prop (can be overridden)
+  const location = useLocation();
+
+  const getLogoForPage = () => {
+    // If logo prop is provided, use it (allows page-specific overrides)
+    if (logo) return logo;
+    // Otherwise, determine logo based on current route (matches Navbar logic)
+    if (location.pathname.startsWith("/garrison"))
+      return "/Images/Garrison/Logo/garrisonlong.png";
+    if (location.pathname.startsWith("/57directive"))
+      return "/Images/57Directive/directive.png";
+    if (location.pathname.startsWith("/academy"))
+      return "/Images/Academy/logo.png";
+    if (location.pathname.startsWith("/realestate"))
+      return "/Images/RealEstate/logo.png";
+    return "/Images/Academy/logo.png"; // Default logo
+  };
+
+  const currentLogo = getLogoForPage();
+
+  const handleLinkClick = () => {
+    // Force scroll to top when footer link is clicked
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+  };
+
   return (
     <footer className="footer-section text-light">
       <div className="container py-5">
@@ -11,7 +40,7 @@ function Footer({ logo }) { // Accept a logo prop
           {/* Left Column: Logo and Contact Info */}
           <div className="col-md-4 mb-4">
             <img
-              src={logo || "/Images/Garrison/Logo/garrisonlong.png"} // Use prop or default
+              src={currentLogo}
               alt="Company logo"
               className="footer-logo mb-3"
             />
@@ -30,10 +59,10 @@ function Footer({ logo }) { // Accept a logo prop
           <div className="col-md-4 mb-4">
             <h5 className="footer-title">Stay With Us</h5>
             <ul className="footer-links list-unstyled">
-              <li><a href="#reserve">Reserve Your Date</a></li>
-              <li><a href="#manage">Manage Reservation</a></li>
-              <li><a href="#directions">Get Directions</a></li>
-              <li><a href="#faq">FAQs</a></li>
+              <li><Link to="/garrison/enquiry" onClick={handleLinkClick}>Reserve Your Date</Link></li>
+              <li><Link to="/garrison" onClick={handleLinkClick}>Manage Reservation</Link></li>
+              <li><Link to="/garrison/location" onClick={handleLinkClick}>Get Directions</Link></li>
+              <li><Link to="/contact" onClick={handleLinkClick}>Contact Us</Link></li>
             </ul>
           </div>
 

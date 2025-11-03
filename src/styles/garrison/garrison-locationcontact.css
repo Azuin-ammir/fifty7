@@ -78,7 +78,7 @@
 
 /* Contact Info */
 .contact-info {
-  background: #f8f3e7;
+  background: var(--color-last);
   padding: 35px 30px;
   border-radius: 15px;
   display: flex;

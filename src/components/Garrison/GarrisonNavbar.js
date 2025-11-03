@@ -12,15 +12,21 @@ function Header() {
   const [businessOpen, setBusinessOpen] = useState(false);
   const [prevScroll, setPrevScroll] = useState(0);
   const [hideNav, setHideNav] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const topBarRef = useRef(null);
   const navRef = useRef(null);
   const businessDropdownRef = useRef(null);
   const businessTimeoutRef = useRef(null);
 
-  const isMobile = window.innerWidth <= 768;
-
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      if (window.innerWidth > 768) {
+        setMobileOpen(false);
+      }
+    };
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -49,10 +55,12 @@ function Header() {
       }
     };
 
+    window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("click", handleClickOutside);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
       if (businessTimeoutRef.current) {
@@ -96,6 +104,16 @@ function Header() {
     setBusinessOpen(false);
   };
 
+  const handleLinkClick = () => {
+    // Scroll to top when navigation link is clicked
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+    closeMobileMenu();
+  };
+
   const handleBusinessMouseEnter = () => {
     if (!isMobile) {
       if (businessTimeoutRef.current) {
@@ -133,15 +151,7 @@ function Header() {
     <header className={`main-header ${scrolled ? "scrolled" : ""}`} ref={navRef}>
       <nav className={`navbar ${scrolled ? "scrolled" : "initial"} ${hideNav ? "hide-on-scroll" : ""}`}>
         <div className="nav-container">
-          <Link 
-            className={`navbar-brand ${scrolled ? "logo-left" : "logo-center"}`} 
-            to="/"
-            onClick={closeMobileMenu}
-          >
-            <img src="/Images/Garrison/Logo/garrisonlong.png" alt="null" />
-          </Link>
-
-          <ul className={`navbar-nav nav-links ${scrolled ? "visible" : "hidden"} ${mobileOpen ? "show" : ""}`}>
+          <ul className={`navbar-nav nav-links ${isMobile ? (scrolled ? "visible" : "hidden") : "visible"} ${mobileOpen ? "show" : ""}`}>
             <li className="nav-item"><a href="#home" onClick={closeMobileMenu}>Home</a></li>
             <li className="nav-item"><a href="#about" onClick={closeMobileMenu}>About</a></li>
             <li className="nav-item"><a href="#inquiries" onClick={closeMobileMenu}>Inquiries</a></li>
@@ -170,28 +180,36 @@ function Header() {
                 onMouseLeave={handleDropdownMouseLeave}
               >
                 <li>
-                  <Link to="/garrison" onClick={closeMobileMenu}>Garrison</Link>
+                  <Link to="/garrison" onClick={handleLinkClick}>Garrison</Link>
                 </li>
                 <li>
-                  <Link to="/kindrette" onClick={closeMobileMenu}>Kindrette</Link>
+                  <Link to="/kindrette" onClick={handleLinkClick}>Kindrette</Link>
                 </li>
                 <li>
-                  <Link to="/business3" onClick={closeMobileMenu}>Business 3</Link>
+                  <Link to="/business3" onClick={handleLinkClick}>Business 3</Link>
                 </li>
                 <li>
-                  <Link to="/business4" onClick={closeMobileMenu}>Business 4</Link>
+                  <Link to="/business4" onClick={handleLinkClick}>Business 4</Link>
                 </li>
                 <li>
-                  <Link to="/fiftyseven-market" onClick={closeMobileMenu}>FiftySeven Market</Link>
+                  <Link to="/fiftyseven-market" onClick={handleLinkClick}>FiftySeven Market</Link>
                 </li>
                 <li>
-                  <Link to="/events" onClick={closeMobileMenu}>Events</Link>
+                  <Link to="/events" onClick={handleLinkClick}>Events</Link>
                 </li>
               </ul>
             </li>
             
-            <li className="nav-item"><Link to="/contact" onClick={closeMobileMenu}>Contact Us</Link></li>
+            <li className="nav-item"><Link to="/contact" onClick={handleLinkClick}>Contact Us</Link></li>
           </ul>
+
+          <Link 
+            className={`navbar-brand ${scrolled ? "logo-left" : "logo-center"}`} 
+            to="/"
+            onClick={closeMobileMenu}
+          >
+            <img src="/Images/Garrison/Logo/garrisonlong.png" alt="null" />
+          </Link>
 
           <div className="top-bar-items" ref={topBarRef}>
             <div className={`top-item ${languageOpen ? "open" : ""}`}>
@@ -215,7 +233,7 @@ function Header() {
             </div>
 
             <div className={`top-item`}>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact" onClick={handleLinkClick}>Contact</Link>
             </div>
 
             <div className={`top-item ${accountOpen ? "open" : ""}`}>

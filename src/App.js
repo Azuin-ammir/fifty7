@@ -1,5 +1,5 @@
 // src/App.js
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -38,6 +38,27 @@ import SellYourPlace from "./pages/Realestate/Realestate";
 
 function Layout() {
   const location = useLocation();
+  
+  // Scroll to top on route change
+  useEffect(() => {
+    // Small delay to ensure route change is complete and DOM is ready
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+      // Also try scrolling the document element for better compatibility
+      if (document.documentElement) {
+        document.documentElement.scrollTop = 0;
+      }
+      if (document.body) {
+        document.body.scrollTop = 0;
+      }
+    }, 0);
+    
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
   
   const isGarrisonPage = location.pathname.startsWith("/garrison");
 
