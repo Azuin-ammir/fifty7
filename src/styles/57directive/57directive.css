@@ -1,6 +1,6 @@
 /* Main page styles */
 .fiftyseven-directive-page {
-  font-family: 'Arial', sans-serif;
+  font-family: var(--font-primary);
 }
 
 .section-title {

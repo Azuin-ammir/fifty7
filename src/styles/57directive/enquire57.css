@@ -13,7 +13,7 @@
 .reno-form-section {
   background: var(--secondary);
   padding: 40px 20px;
-  font-family: 'Angsana New', 'Montserrat', serif;
+  font-family: var(--font-primary);
   color: var(--dark);
   max-width: 800px;
   margin: 0 auto;

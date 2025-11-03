@@ -15,7 +15,7 @@
   padding: 0;
   margin: 0;
   border: none;
-  font-family: 'Angsana New', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-primary);
   overflow: hidden;
   position: relative;
   z-index: 2;

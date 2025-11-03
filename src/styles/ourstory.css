@@ -1,7 +1,7 @@
 .personal-sanctuary-section {
   background-color: #fffaf2; /* soft warm white background */
   color: #222;
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-primary);
   padding: 6rem 0;
 }
 

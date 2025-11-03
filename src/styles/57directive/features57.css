@@ -3,7 +3,7 @@
   --secondary: var(--color-last);
   --accent: var(--color-secondary);
   --text-light: #ffffff;
-  --font-family: 'Angsana New', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family: var(--font-primary);
 }
 
 /* MAIN SECTION */
