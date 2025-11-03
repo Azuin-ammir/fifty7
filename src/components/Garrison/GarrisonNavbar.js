@@ -152,7 +152,7 @@ function Header() {
       <nav className={`navbar ${scrolled ? "scrolled" : "initial"} ${hideNav ? "hide-on-scroll" : ""}`}>
         <div className="nav-container">
           <ul className={`navbar-nav nav-links ${isMobile ? (scrolled ? "visible" : "hidden") : "visible"} ${mobileOpen ? "show" : ""}`}>
-            <li className="nav-item"><a href="#home" onClick={closeMobileMenu}>Home</a></li>
+            <li className="nav-item"><Link to="/" onClick={handleLinkClick}>Home</Link></li>
             <li className="nav-item"><a href="#about" onClick={closeMobileMenu}>About</a></li>
             <li className="nav-item"><a href="#inquiries" onClick={closeMobileMenu}>Inquiries</a></li>
             <li className="nav-item"><a href="#gallery" onClick={closeMobileMenu}>Gallery</a></li>

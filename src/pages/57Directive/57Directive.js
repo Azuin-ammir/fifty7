@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import Hero57 from "../../components/57Directive/Hero57";
 import Portfolio57 from "../../components/57Directive/Portfolio57";
 import OurTeam57 from "../../components/57Directive/OurTeam57";
@@ -16,8 +15,6 @@ function FiftySevenDirective() {
       <Portfolio57 />
       <Features57 />
       <Renovate57 />
-      <Footer logo="/Images/57Directive/directive.png" />
-
     </div>
   );
 }
